@@ -4,9 +4,10 @@ Backend
 open ./interview-task-backend
 enter 'npm i' in console
 enter 'npm run start' in console
-Frontend
 
+Frontend
 open ./interview-task-frontend
 enter 'npm i' in console
 enter 'npm run start' in console
+
 App is available on http://localhost:4200/
