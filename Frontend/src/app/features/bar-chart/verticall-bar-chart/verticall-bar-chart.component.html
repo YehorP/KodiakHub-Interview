@@ -1,0 +1,41 @@
+<div class="chart">
+    <div class="y-labels">
+        <span class="label" style="bottom: 0;">0</span>
+        <span class="label" style="bottom: 20%;">20</span>
+        <span class="label" style="bottom: 40%;">40</span>
+        <span class="label" style="bottom: 60%;">60</span>
+        <span class="label" style="bottom: 80%;">80</span>
+        <span class="label" style="bottom: 100%">100</span>
+    </div>
+    <div class="chart-bars">
+        <div class="bars" *ngIf="chartEntries; else else_content">
+            <div class="bar-record" *ngFor="let key of xMappingKeys;let i = index"
+                [ngStyle]="{'left': (100 / xMappingKeys.length) * i + '%'}">
+                <div *ngFor="let columnEntry of xAxisMapping.get(key)" class="bar"
+                    [ngStyle]="{'height': columnEntry.y !== null ? (columnEntry.y > 100 ? 100 : columnEntry.y)+ '%' : '2%', 'background-color': entryColorMapping.get(columnEntry.label)}">
+                </div>
+                <span class="bar-record__label">{{key}}</span>
+            </div>
+        </div>
+        <div class="lines">
+            <div class="line" style="bottom: 0;"></div>
+            <div class="line" style="bottom: 20%;"></div>
+            <div class="line" style="bottom: 40%;"></div>
+            <div class="line" style="bottom: 60%;"></div>
+            <div class="line" style="bottom: 80%;"></div>
+            <div class="line" style="bottom: 100%;"></div>
+        </div>
+    </div>
+    <ng-template #else_content><h1 class="wrong-data-info">No data</h1></ng-template>
+</div>
+<div class="story-wrapper" *ngIf="chartEntries">
+    <div class="story">
+        <div class="story__entry" *ngFor="let storyEntry of entryColorMappingKeys">
+            <div class="color" [ngStyle]="{
+                    'background-color': entryColorMapping.get(storyEntry),
+                    'width': 100 / entryColorMappingKeys.length
+                }"></div>
+            <span class="text">{{storyEntry}}</span>
+        </div>
+    </div>
+</div>

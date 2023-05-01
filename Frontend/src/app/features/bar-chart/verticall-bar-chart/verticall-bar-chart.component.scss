@@ -1,0 +1,102 @@
+:host {
+    height: 100%;
+    width: 100%;
+}
+
+.bars, .chart-bars, .lines {
+    height: 100%;
+}
+
+.chart {
+    padding-top: 1%;
+    height: 86%;
+    width: 100%;
+    display: flex;
+}
+.chart-bars {
+    width: 97%;
+    position: relative;
+}
+.y-labels {
+    height: 100%;
+    width: 3%;
+    position: relative;
+    margin-top: .5rem;
+    margin-left: .5rem;
+}
+
+.bars, .lines {
+    width: 100%;
+    position: absolute;
+}
+
+.label {
+    position: absolute;
+}
+
+.line {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: grey;
+}
+
+.bar {
+    width: 30%;
+    bottom: 0;
+    background-color: blue;
+    z-index: 1;
+}
+
+.bar-record {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: .5rem;
+
+    &__label {
+        position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    }
+}
+
+.story-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+}
+
+.story {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    margin-top: 3%;
+    height: 2%;
+
+    &__entry {
+        .color {
+            height: 100%;
+        }
+    }
+
+    @media (max-width: 980px) {
+        margin-top: 6%;
+    }
+
+    @media (max-width: 480px) {
+        margin-top: 8%;
+    }
+}
+
+.wrong-data-info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
